@@ -47,7 +47,7 @@ function App() {
       loading ?
       '' :
       <SlideDown>
-          <Header/>
+          <Header headerText={"Dunders Wolves"}/>
       </SlideDown>
     }
     <main className="container">

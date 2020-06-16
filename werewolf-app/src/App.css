@@ -1,3 +1,10 @@
+@font-face {
+  font-family: "BerkahiBlackletter";
+  src: url("./resources/BerkahiBlackletter.ttf");
+  src: url("./resources/BerkahiBlackletter.otf") format("opentype");
+}
+
+
 .App {
   text-align: center;
 }
@@ -52,10 +59,12 @@
   from {
     margin-left: -20%;
     width: 300%;
+    overflow: hidden;
   }
   to {
     margin-left: 2%;
     width: 100%;
+    overflow: hidden;
   }
 }
 
@@ -112,7 +121,6 @@
 .mHeader {
   height: 10vh;
   width: 100%;
-  overflow: hidden;
   padding-top: 15px;
   background: url('./imgs/greytexture.jpg');
   background-size: 100%;
@@ -121,10 +129,16 @@
 }
 .mHeader h1 {
     animation: 1.5s slide-right;
+    overflow: hidden;
     margin-top: 0px;
     margin-left: 2%;
+    padding-bottom: 5px;
     display: inline-block;
     overflow: hidden;
+    font-family: "BerkahiBlackletter";
+    font-size: 32pt;
+    color: white;
+    text-shadow: 3px 3px 1px black;
   }
 
 
