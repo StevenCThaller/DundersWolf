@@ -9,16 +9,15 @@ import Header from './components/Header';
 import { SlideDown } from 'react-slidedown';
 import 'react-slidedown/lib/slidedown.css';
 import Loading from './components/Loading';
+import RegForm from './components/RegForm';
+import { Router } from '@reach/router';
+import axios from 'axios';
 
 function App() {
   const [loading, setLoading] = useState(true);
   const [fadeLoad, setFadeLoad] = useState(false);
 
-  const toggleFade = () => {
-    // setLoading(false);
-    setFadeLoad(true);
-    setTimeout(toggleLoad, 1500);
-  }
+  
 
   const toggleLoad = () => {
     setLoading(false);
@@ -26,19 +25,22 @@ function App() {
 
   
   useEffect(() => {
-    // const fade = setTimeout(() => {
-    //   toggleLoad();
-    // }, 1500);
+      const toggleFade = () => {
+        // setLoading(false);
+        setFadeLoad(true);
+        setTimeout(toggleLoad, 1500);
+      }
 
-    const timer = setTimeout(() => {
-      console.log("loading...")
-      // fade();
-      setTimeout(toggleFade, 1500);
-    }, 2000);
 
-    return () => {
-      timer();
-    }
+    // return () => {
+      axios.get("http://localhost:8000/users/all")
+        .then(response => {
+          toggleFade();
+        })
+        .catch(err => {
+          console.log(err);
+        })
+    // }
   }, []);
 
   return (
@@ -54,7 +56,10 @@ function App() {
     {
       loading ?
       <Loading logo={logo} fade={fadeLoad}/>
-      : ''
+      : 
+      <Router className="router">
+        <RegForm class="register" path="/register"/>
+      </Router>
     }
     </main>
     {

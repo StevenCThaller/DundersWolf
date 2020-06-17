@@ -1,13 +1,110 @@
-@font-face {
-  font-family: "BerkahiBlackletter";
-  src: url("./resources/BerkahiBlackletter.ttf");
-  src: url("./resources/BerkahiBlackletter.otf") format("opentype");
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 10s linear;
+  }
 }
 
+.router {
+  display: flex;
+}
 
+/* ******************** EXTRA FONTS ************************ */
+/*    Old timey calligraphy kinda thing. Basically just for headers*/
+/* */@font-face {
+/* */  font-family: "BerkahiBlackletter";
+/* */  src: url("./resources/BerkahiBlackletter.ttf");
+/* */  src: url("./resources/BerkahiBlackletter.otf") format("opentype");
+/* */}
+/* */@font-face {
+/* */  font-family: "Dragonlands";
+/* */  src: url("./resources/Dragonlands-KeZ7.ttf");
+/* */}
+/* ************************************************************ */
+
+/* ******************** ANIMATIONS ************************ */
+/*    This is an animation for having our Page title slide in to the right */
+/* @keyframes slide-right {
+from {
+    margin-left: -20%;
+    width: 300%;
+    display: inline-block;
+    vertical-align: top;
+  }
+  to {
+    margin-left: 2%;
+    width: 100%;
+    display: inline-block;
+    vertical-align: top;
+  }
+} */
+
+@keyframes slide-right {
+  0% {
+    transform: translateX(-900px);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+@keyframes slide-left {
+  0% {
+    transform: translateX(900px);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+/*    This is an animation for having our footer slide up from the bottom*/
+/* */@keyframes slide-up {
+/* */  from {
+/* */    margin-bottom: -10vh;
+/* */  }
+/* */  to {
+/* */    margin-bottom: 0vh;
+/* */  }
+/* */}
+/*    This is an animation for having something fade away */
+/* */@keyframes fade-away {
+/* */  from {
+/* */    opacity: 1;
+/* */  }
+/* */  to {
+/* */    opacity: 0;
+/* */  }
+/* */}
+/*    This is an animation for increasing text size, designed for use on hover*/
+/* */@keyframes zoom {
+/* */  from {
+/* */    font-size: 10pt;
+/* */  }
+/* */  to {
+/* */    font-size: 12pt;
+/* */  }
+/* */}
+/*    This is the opposite. Shrinking text back down to what it was before hover */
+/* */@keyframes nZoom {
+/* */  from {
+/* */    font-size: 12pt;
+/* */  }
+/* */  to {
+/* */    font-size: 10pt;
+/* */  }
+/* */}
+/*    This classic. Spinning Logo. */
+/* */@keyframes App-logo-spin {
+/* */  from {
+/* */    transform: rotate(0deg);
+/* */  }
+/* */  to {
+/* */    transform: rotate(-360deg);
+/* */  }
+/* */}
+/* ********************************************************************** */
 .App {
   text-align: center;
 }
+
 
 .App-logo {
   max-width: 25%;
@@ -23,11 +120,7 @@
   justify-content: center;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 10s linear;
-  }
-}
+
 
 
 .App-header {
@@ -45,71 +138,17 @@
   color: #61dafb;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(-360deg);
-  }
-}
 
 
-@keyframes slide-right {
-  from {
-    margin-left: -20%;
-    width: 300%;
-    overflow: hidden;
-  }
-  to {
-    margin-left: 2%;
-    width: 100%;
-    overflow: hidden;
-  }
-}
 
-@keyframes slide-up {
-  from {
-    margin-bottom: -10vh;
-  }
-  to {
-    margin-bottom: 0vh;
-  }
-}
 
-@keyframes fade-away {
-  from {
-    opacity: 1;
-  }
-  to {
-    opacity: 0;
-  }
-}
 
-@keyframes zoom {
-  from {
-    font-size: 10pt;
-  }
-  to {
-    font-size: 12pt;
-  }
-}
-
-@keyframes nZoom {
-  from {
-    font-size: 12pt;
-  }
-  to {
-    font-size: 10pt;
-  }
-}
-
-.zoom {
+.Text-grow {
   animation: zoom 0.25s;
   font-size: 12pt;
 }
 
-.nZoom {
+.Text-shrink {
   animation: nZoom 0.25s;
   font-size: 10pt;
 }
@@ -121,17 +160,25 @@
 .mHeader {
   height: 10vh;
   width: 100%;
+  overflow: hidden;
   padding-top: 15px;
   background: url('./imgs/greytexture.jpg');
   background-size: 100%;
   border-bottom: 2px solid black;
   box-shadow: 0px -2px 2px rgb(90,90,90);
+  display: flex;
 }
-.mHeader h1 {
+.mHeader section {
+  padding-left: 2%;
+  padding-right: 2%;
+  width: 50%;
+  display: inline-block;
+}
+.header-left {
     animation: 1.5s slide-right;
     overflow: hidden;
     margin-top: 0px;
-    margin-left: 2%;
+    /* margin-left: 2%; */
     padding-bottom: 5px;
     display: inline-block;
     overflow: hidden;
@@ -139,7 +186,43 @@
     font-size: 32pt;
     color: white;
     text-shadow: 3px 3px 1px black;
+    vertical-align: top;
   }
+  .mHead-right {
+    width: 50%;
+    text-align: right;
+    padding-right: 2%;
+  }
+  .header-right {
+    animation: 1.5s slide-left;
+    overflow: hidden;
+    width: auto;
+    vertical-align: top;
+    font-size: 14pt;
+  }
+
+button {
+  font-family: "Dragonlands"; /* 1 */
+  font-size: 100%; /* 1 */
+  line-height: 1.15; /* 1 */
+  margin: 0; /* 2 */
+  background-image: url('./imgs/parch-button.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: auto;
+  margin-left: 3px;
+  margin-right: 3px;
+  padding-left: 2%;
+  padding-right: 2%;
+  border: 0px;
+  background-color: rgb(0,0,0,0);
+}
+
+button:focus {
+  border: 0;
+  outline: none;
+  box-shadow: 3px 3px 6px black;
+}
 
 
 .moreInfo {
@@ -182,4 +265,44 @@
 
 footer {
   flex-shrink: 0;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+
+.inputRow {
+  width: 100%;
+  margin: 0 3% 0 3%;
+  display: block;
+}
+
+.form-right {
+  margin-left: 32%;
+}
+
+.inputLabel {
+  width: 30%;
+  margin-right: 2%;
+  display: inline-block;
+}
+.inputBox {
+  width: 65%;
+  display: inline-block;
+}
+
+.errorText {
+  color: red;
+  font-size: 10pt;
+  margin-top: 2px;
+  margin-bottom: 2px;
+}
+
+.register {
+  display: flex;
+  justify-content: center;
+  width: 50%;
+}
+
+form {
+  width: 100%;
+  height: auto;
 }

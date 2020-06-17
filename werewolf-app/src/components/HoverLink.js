@@ -7,8 +7,8 @@ const HoverLink = props => {
 
 
     const myClasses = classNames({
-        "zoom": bonusClass,
-        "nZoom": !bonusClass
+        "Text-grow": bonusClass,
+        "Text-shrink": !bonusClass
     })
 
     return (

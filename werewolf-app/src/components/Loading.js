@@ -1,14 +1,14 @@
-import React, {useEffect} from 'react'
+import React from 'react'
 import classNames from 'classnames';
 
 const Loading = props => {
-    useEffect(()=>{
-        console.log(props);
-    })
+    // useEffect(()=>{
+    //     console.log(props);
+    // })
 
     const spinClass = classNames({
         'spinning-logo': true,
-        'fadeaway': props.fade == true
+        'fadeaway': props.fade === true
     })
     return (
         <div className={spinClass}>
